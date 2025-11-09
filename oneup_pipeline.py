@@ -17,7 +17,7 @@ google_cred = {
     "type": os.getenv("TYPE"),
     "project_id": os.getenv("PROJECT_ID"),
     "private_key_id": os.getenv("PRIVATE_KEY_ID"),
-    "private_key": os.getenv("PRIVATE_KEY"),
+    "private_key": os.getenv("PRIVATE_KEY").replace("\\n", "\n"),
     "client_email": os.getenv("CLIENT_EMAIL"),
     "client_id": os.getenv("CLIENT_ID"),
     "auth_uri": os.getenv("AUTH_URI"),
@@ -432,6 +432,7 @@ load_data(sheet_name="OneUp - Products", nk="id", api_type="items", method='over
 2. When the pipeline is executed, we will keep retrieving the lastest data and create a natural key  
 3. Check if the natural key exists in the google sheets, as long does not exists we keep loading the data
 4. Once we find an entry that exists we exit the data loading
+
 
 
 NK Definition: order_line_id """
