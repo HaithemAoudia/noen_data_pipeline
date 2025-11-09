@@ -22,4 +22,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run script
-        run: python one_pipeline.py
+        run: python oneup_pipeline.py
