@@ -270,7 +270,7 @@ def load_data(sheet_name, nk, api_type, method):
     creds = Credentials.from_service_account_info(google_cred, scopes=scopes)
     client = gspread.authorize(creds)
 
-    sheet_id = os.getenv("PRIVATE_KEY_ID")
+    sheet_id = os.getenv("SHEET_ID")
     workbook = client.open_by_key(sheet_id)
     sheet = workbook.worksheet(sheet_name)
     offset = 0
@@ -437,6 +437,7 @@ load_data(sheet_name="OneUp - Products", nk="id", api_type="items", method='over
 
 
 NK Definition: order_line_id """
+
 
 
 
