@@ -28,7 +28,7 @@ google_cred = {
 }
 
 
-
+print(google_cred["token_uri"])
 
 
 def fetch_data(type, offset, limit):
@@ -437,6 +437,7 @@ load_data(sheet_name="OneUp - Products", nk="id", api_type="items", method='over
 
 
 NK Definition: order_line_id """
+
 
 
 
