@@ -30,6 +30,7 @@ google_cred = {
 
 
 
+
 def fetch_data(type, offset, limit):
     url = f"https://api.oneup.com/v1/{type}?limit={limit}&offset={offset}&sort=-created_at"
 
@@ -436,4 +437,5 @@ load_data(sheet_name="OneUp - Products", nk="id", api_type="items", method='over
 
 
 NK Definition: order_line_id """
+
 
