@@ -61,6 +61,7 @@ def transform_invoices(data):
         customer_id = invoice.get("customer_id")
         customer_name = invoice.get("customer", {}).get("name")
         date = invoice.get("date")
+        invoice_id = invoice.get("user_code")
         
         billing = invoice.get("billing_address", {})
         country = billing.get("country")
@@ -71,7 +72,6 @@ def transform_invoices(data):
         
         # Each invoice may have multiple installments
         for installment in invoice.get("installments", []):
-            invoice_id = installment.get("invoice_id")
             due_date = installment.get("due_date")
             amount = installment.get("amount")
             outstanding_amount = installment.get("outstanding_amount")
@@ -437,6 +437,7 @@ load_data(sheet_name="OneUp - Products", nk="id", api_type="items", method='over
 
 
 NK Definition: order_line_id """
+
 
 
 
