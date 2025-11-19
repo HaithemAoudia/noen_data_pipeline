@@ -412,16 +412,16 @@ def load_data(sheet_name, nk, api_type, method):
 
 
 # Run Invoices
-# print("Loading Invoices Data")
-# load_data(sheet_name="OneUp - Invoices", nk="order_line_id", api_type="invoices", method='Append')
+print("Loading Invoices Data")
+load_data(sheet_name="OneUp - Invoices", nk="order_line_id", api_type="invoices", method='Append')
 
 # Run Products
 print("Loading Products Data")
 load_data(sheet_name="OneUp - Products", nk="id", api_type="items", method='overwrite')
 
 # Run Customers
-# print("Loading Customer Data")
-# load_data(sheet_name="OneUp - Customers", nk="id", api_type="customers", method='overwrite')
+print("Loading Customer Data")
+load_data(sheet_name="OneUp - Customers", nk="id", api_type="customers", method='overwrite')
 
 
 
@@ -437,6 +437,7 @@ load_data(sheet_name="OneUp - Products", nk="id", api_type="items", method='over
 
 
 NK Definition: order_line_id """
+
 
 
 
