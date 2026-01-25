@@ -52,6 +52,7 @@ def transform_invoices(data):
     for invoice in data:
         # Extract invoice-level fields
         po_number = invoice.get("po_number")
+        invoice_number = invoice.get("user_code")
         delivery_status = invoice.get("delivery_status")
         invoice_status = invoice.get("invoice_status")
         sent = invoice.get("sent")
@@ -61,7 +62,6 @@ def transform_invoices(data):
         customer_id = invoice.get("customer_id")
         customer_name = invoice.get("customer", {}).get("name")
         date = invoice.get("date")
-        invoice_id = invoice.get("user_code")
         
         billing = invoice.get("billing_address", {})
         country = billing.get("country")
@@ -69,9 +69,11 @@ def transform_invoices(data):
         postal_code = billing.get("postal_code")
         street_line = billing.get("street_line1")
         total_amount = invoice.get("total")
+
         
         # Each invoice may have multiple installments
         for installment in invoice.get("installments", []):
+            invoice_id = installment.get("invoice_id")
             due_date = installment.get("due_date")
             amount = installment.get("amount")
             outstanding_amount = installment.get("outstanding_amount")
@@ -82,6 +84,7 @@ def transform_invoices(data):
             for line in invoice.get("order_lines", []):
                 record = {
                     "invoice_id": invoice_id,
+                    "invoice_number": invoice_number,
                     "date": date,
                     "due_date": due_date,
                     "amount": amount,
@@ -437,6 +440,7 @@ load_data(sheet_name="OneUp - Customers", nk="id", api_type="customers", method=
 
 
 NK Definition: order_line_id """
+
 
 
 
